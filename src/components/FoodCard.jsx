@@ -11,7 +11,7 @@ export default function FoodCard({ image, name }) {
       <Link
           to="/Home"
           className="px-6 py-2 mb-3 rounded-lg font-semibold 
-                     bg-gradient-to-r from-gray-600 via-gray-800 to-gray-600 
+                     bg-gradient-to-r from-gray-600 via-gray-600 to-gray-600 
                      text-white shadow-md 
                      hover:from-gray-800 hover:via-gray-600 hover:to-gray-800 
                      hover:shadow-lg hover:scale-105 
@@ -22,7 +22,7 @@ export default function FoodCard({ image, name }) {
         <Link
           to="/Home"
           className="px-6 py-2 mb-3 rounded-lg font-semibold 
-                     bg-gradient-to-r from-gray-600 via-gray-800 to-gray-600 
+                     bg-gradient-to-r from-gray-600 via-gray-600 to-gray-600 
                      text-white shadow-md 
                      hover:from-gray-800 hover:via-gray-600 hover:to-gray-800 
                      hover:shadow-lg hover:scale-105 
