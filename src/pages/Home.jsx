@@ -3,6 +3,7 @@ import { UserContext } from "../context/UserContext.jsx";
 import { useState, useEffect } from "react";
 import Carousel from "../components/Carousel"; 
 import CategoryCard from "../components/CategoryCard";
+import FoodCard from "../components/foodCard.jsx";
 
 export default function Home() {
   const { name } = useContext(UserContext);
@@ -57,8 +58,13 @@ export default function Home() {
     </div>
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Suggested For You</h1>
-       <div>
+      <div className="p-4">
+      <div className="flex gap-4 overflow-x-auto">
+        {categories.map((cat, index) => (
+          <FoodCard key={index} image={cat.image} name={cat.name} />
+        ))}
       </div>
+    </div>
     </div>
     </div>
     
