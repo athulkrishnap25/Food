@@ -14,21 +14,21 @@ export default function BottomNav() {
                      hover:from-gray-800 hover:via-gray-600 hover:to-gray-800 
                      hover:shadow-lg hover:scale-105 
                      transition-all duration-300 ease-in-out">
-      <div className="flex justify-around items-center h-16 max-w-lg mx-auto">
-        {navItems.map((item) => (
-          <Link
-            key={item.name}
-            to={item.path}
-            className={`flex flex-col items-center justify-center p-2 text-sm font-medium transition-colors 
-              ${window.location.pathname === item.path ? 'text-blue-600' : 'text-white-500 hover:text-blue-600'}
-            `}
-          >
+      <div className="flex justify-center items-center h-16 max-w-lg mx-auto space-x-16">
+  {navItems.map((item) => (
+    <Link
+      key={item.name}
+      to={item.path}
+      className={`flex flex-col items-center justify-center p-2 text-sm font-medium transition-colors 
+        ${window.location.pathname === item.path ? 'text-blue-600' : 'text-white-500 hover:text-blue-600'}
+      `}
+    >
+      <item.icon className="w-5 h-5 mb-1" />
+      {item.name}
+    </Link>
+  ))}
+</div>
 
-            <item.icon className="w-5 h-5 mb-1" />
-            {item.name}
-          </Link>
-        ))}
-      </div>
     </nav>
   );
 }
