@@ -232,6 +232,24 @@ export default function Home() {
         <h1 className="text-2xl font-bold mb-4">Suggested For You</h1>
         <div className="p-4">
           <div className="flex gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
+            {suggestedFoods
+              .slice() 
+              .sort(() => Math.random() - 0.5) 
+              .map((food, index) => (
+                <FoodCard 
+                  key={food.foodName}
+                  image={food.image} 
+                  foodName={food.foodName} 
+                  foodPrice={food.foodPrice} 
+                  foodDescription={food.foodDescription} 
+                />
+              ))}
+          </div>
+        </div>
+        <div className="p-4">
+        <h1 className="text-2xl font-bold mb-4">Newly Added</h1>
+        <div className="p-4">
+          <div className="flex gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
             {suggestedFoods.map((food, index) => (
               <FoodCard
                 key={index}
@@ -243,6 +261,7 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </div>
       </div>
       <br />
       <br />
