@@ -3,7 +3,7 @@ import { UserContext } from "../context/UserContext.jsx";
 import { useState, useEffect } from "react";
 import Carousel from "../components/Carousel";
 import CategoryCard from "../components/CategoryCard";
-import FoodCard from "../components/foodCard.jsx";
+import FoodCard from "../components/FoodCards.jsx";
 import BottomNav from "../components/BottomNav";
 
 export default function Home() {
