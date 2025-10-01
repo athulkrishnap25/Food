@@ -587,7 +587,7 @@ export default function Home() {
     },
     {
       foodName: "Puttu with Kadala Curry",
-      foodPrice: "₹100.00",
+      foodPrice: "₹105.00",
       foodDescription:
         "Steamed rice flour cylinders with black chickpea curry.",
       image: "https://i.ytimg.com/vi/e2kxi7BxvLs/maxresdefault.jpg",
