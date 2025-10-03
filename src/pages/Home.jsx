@@ -497,8 +497,7 @@ export default function Home() {
     const cartItems = useSelector(state => state.cart.items);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [showSplash, setShowSplash] = useState(true);
-
+ 
   const categories = [
     {
       name: "North Indian",
@@ -685,12 +684,24 @@ export default function Home() {
     food.foodName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  useEffect(() => {
+   const SPLASH_KEY = 'splashShown';
+  const checkSplashStatus = () => {
+  return !sessionStorage.getItem(SPLASH_KEY);
+};
+  const [showSplash, setShowSplash] = useState(
+  !sessionStorage.getItem(SPLASH_KEY)
+);
+
+   useEffect(() => {
+  if (showSplash) {
     const timer = setTimeout(() => {
       setShowSplash(false);
+      sessionStorage.setItem(SPLASH_KEY, 'true'); 
     }, 2000);
+
     return () => clearTimeout(timer);
-  }, []);
+  }
+}, [showSplash]);
 
   if (showSplash) {
     return (
