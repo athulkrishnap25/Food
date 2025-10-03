@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext.jsx"; 
-import { Provider } from 'react-redux'; // 🔑 NEW IMPORT
-import store from './redux/store';     // 🔑 NEW IMPORT
+import { Provider } from 'react-redux'; 
+import store from './redux/store';     
 import Instruction1 from "./pages/Instruction1";
 import Instruction2 from "./pages/Instruction2";
 import Instruction3 from "./pages/Instruction3";
@@ -14,6 +14,8 @@ import Chinese from "./pages/Chinese";
 import Desserts from "./pages/Desserts";
 import Beverages from "./pages/Beverages";
 import Orders from "./pages/orders";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
+import Account from "./pages/account";
 
 
 
@@ -21,6 +23,7 @@ export default function App() {
   return (
     <UserProvider>
       <Provider store={store}> 
+        <ThemeProvider>
         <div>
           <Routes>
             <Route path="/" element={<Instruction1 />} />
@@ -35,8 +38,10 @@ export default function App() {
             <Route path="/category/Desserts" element={<Desserts />} /> 
             <Route path="/category/Beverages" element={<Beverages />} />
             <Route path="/orders" element={<Orders />} />
+             <Route path="/account" element={<Account />} />
           </Routes>
         </div>
+        </ThemeProvider>
       </Provider>
     </UserProvider>
   );
