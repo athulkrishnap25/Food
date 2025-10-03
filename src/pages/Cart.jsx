@@ -1,24 +1,40 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux'; 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BottomNav from "../components/BottomNav";
 
-import { addToCart, removeFromCart } from '../redux/cartSlice'; 
+import { addToCart, removeFromCart, clearCart } from '../redux/cartSlice'; 
+import { placeOrder } from '../redux/ordersSlice'; 
+
 
 export default function Cart() {
   const cartItems = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate(); 
   const totalPrice = cartItems.reduce((sum, item) => {
     const price = parseFloat(item.foodPrice.replace("₹", ""));
     return sum + price * item.quantity;
   }, 0);
+
   const handleRemove = (foodName) => {
     dispatch(removeFromCart(foodName)); 
   };
 
   const handleAdd = (item) => {
     dispatch(addToCart(item));
+  };
+  
+  const handleCheckout = () => {
+    if (cartItems.length === 0) return;
+
+    const orderPayload = {
+        items: cartItems,
+        totalPrice: totalPrice.toFixed(2),
+    };
+    dispatch(placeOrder(orderPayload));
+    dispatch(clearCart());
+
+    navigate('/orders'); 
   };
 
   return (
@@ -74,7 +90,10 @@ export default function Cart() {
               <span>Total:</span>
               <span>₹{totalPrice.toFixed(2)}</span>
             </div>
-            <button className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl text-xl font-bold transition duration-200">
+            <button 
+              onClick={handleCheckout} 
+              className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl text-xl font-bold transition duration-200"
+            >
               Proceed to Checkout
             </button>
           </div>

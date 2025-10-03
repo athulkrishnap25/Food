@@ -13,6 +13,7 @@ import SouthIndian from "./pages/SouthIndian";
 import Chinese from "./pages/Chinese"; 
 import Desserts from "./pages/Desserts";
 import Beverages from "./pages/Beverages";
+import Orders from "./pages/orders";
 
 
 
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="/category/Chinese" element={<Chinese />} /> 
             <Route path="/category/Desserts" element={<Desserts />} /> 
             <Route path="/category/Beverages" element={<Beverages />} />
+            <Route path="/orders" element={<Orders />} />
           </Routes>
         </div>
       </Provider>

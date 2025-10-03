@@ -18,6 +18,7 @@ const cartSlice = createSlice({
       }
       state.totalQuantity = state.items.reduce((total, item) => total + item.quantity, 0);
     },
+    
     removeFromCart(state, action) {
       const foodName = action.payload;
       const existingItem = state.items.find(item => item.foodName === foodName);
@@ -31,6 +32,7 @@ const cartSlice = createSlice({
         state.totalQuantity = state.items.reduce((total, item) => total + item.quantity, 0);
       }
     },
+    
     clearCart(state) {
       state.items = [];
       state.totalQuantity = 0;
