@@ -713,7 +713,7 @@ export default function Home() {
   }
 
   return (
-    <div className="relative w-screen bg-gradient-to-r from-gray-900 to-black text-white min-h-screen">
+    <div className="relative bg-gradient-to-r from-gray-900 to-black text-white min-h-screen">
       <div className="flex justify-between items-center p-5">
         <h1 className="text-4xl font-bold text-left">QuickBite</h1>
 
@@ -807,21 +807,21 @@ export default function Home() {
         </div>
       )}
       <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">All Items</h1>
-        <div className="p-4">
-          <div className="grid **grid-cols-1** sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {ALL_WEBSITE_FOODS.map((food, index) => (
-              <FoodCard
-                key={food.foodName}
-                image={food.image}
-                foodName={food.foodName}
-                foodPrice={food.foodPrice}
-                foodDescription={food.foodDescription}
-              />
-            ))}
-          </div>
-        </div>
+            <h1 className="text-2xl font-bold mb-4">All Items</h1>
+    <div className="p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+        {ALL_WEBSITE_FOODS.map((food, index) => (
+          <FoodCard
+            key={food.foodName}
+            image={food.image}
+            foodName={food.foodName}
+            foodPrice={food.foodPrice}
+            foodDescription={food.foodDescription}
+          />
+        ))}
       </div>
+    </div>
+</div>
 
       <br />
       <br />
