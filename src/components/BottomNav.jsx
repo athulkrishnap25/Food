@@ -9,9 +9,9 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 w-full bg-gradient-to-r from-gray-600 via-gray-800 to-gray-600 
+    <nav className="fixed bottom-0 left-0 w-full bg-gradient-to-r from-gray-600 via-gray-900 to-gray-600 
                      text-white shadow-md 
-                     hover:from-gray-800 hover:via-gray-600 hover:to-gray-800 
+                     hover:from-gray-900 hover:via-gray-600 hover:to-gray-900 
                      hover:shadow-lg hover:scale-105 
                      transition-all duration-300 ease-in-out">
       <div className="flex justify-center items-center h-16 max-w-lg mx-auto space-x-16">

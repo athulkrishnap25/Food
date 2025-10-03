@@ -4,7 +4,7 @@ import { useTheme } from '../context/ThemeContext.jsx';
 import BottomNav from '../components/BottomNav';
 import { FaMoon, FaSun, FaUserCircle, FaEnvelope } from 'react-icons/fa';
 
-const CONTACT_FORM_URL = "contact link";
+const CONTACT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdHQpDf92qz4K46xkel6iTkk3cd19RPuItTpLsgORTyj2yK2g/viewform?usp=header";
 
 export default function Account() {
     const { name } = useContext(UserContext);
@@ -17,7 +17,7 @@ export default function Account() {
     };
 
     return (
-        <div className="relative w-screen min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
+       <div className="relative w-screen min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
             <div className="p-5">
                 <h1 className="text-4xl font-bold mb-8">My Account</h1>
             </div>
