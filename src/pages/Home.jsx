@@ -5,7 +5,7 @@ import Carousel from "../components/Carousel";
 import CategoryCard from "../components/CategoryCard";
 import FoodCard from "../components/FoodCards.jsx";
 import BottomNav from "../components/BottomNav";
-import { useCart } from "../context/CartContext.jsx";
+import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 
@@ -493,7 +493,8 @@ const ALL_WEBSITE_FOODS = [
 
 export default function Home() {
   const { name } = useContext(UserContext);
-  const { cartTotal } = useCart();
+  const cartTotal = useSelector(state => state.cart.totalQuantity);
+    const cartItems = useSelector(state => state.cart.items);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [showSplash, setShowSplash] = useState(true);

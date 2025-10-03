@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaChevronLeft } from 'react-icons/fa';
-import { useCart } from '../context/CartContext.jsx';
+import { useSelector } from 'react-redux'; 
 
 import FoodCard from '../components/FoodCards.jsx'; 
 import BottomNav from '../components/BottomNav';

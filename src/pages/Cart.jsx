@@ -1,14 +1,25 @@
 import React from "react";
-import { useCart } from "../context/CartContext.jsx";
+import { useSelector, useDispatch } from 'react-redux'; 
 import { Link } from "react-router-dom";
 import BottomNav from "../components/BottomNav";
 
+import { addToCart, removeFromCart } from '../redux/cartSlice'; 
+
 export default function Cart() {
-  const { cartItems, addToCart, removeFromCart } = useCart();
+  const cartItems = useSelector(state => state.cart.items);
+  const dispatch = useDispatch();
+
   const totalPrice = cartItems.reduce((sum, item) => {
     const price = parseFloat(item.foodPrice.replace("₹", ""));
     return sum + price * item.quantity;
   }, 0);
+  const handleRemove = (foodName) => {
+    dispatch(removeFromCart(foodName)); 
+  };
+
+  const handleAdd = (item) => {
+    dispatch(addToCart(item));
+  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-r from-gray-900 to-black text-white">
@@ -16,7 +27,7 @@ export default function Cart() {
         <Link to="/home" className="text-red-500 text-sm mb-4 block">
           ← Back to Home
         </Link>
-        <h1 className="text-4xl font-bold mb-8">Your Cart </h1>
+        <h1 className="text-4xl font-bold mb-8">Your Cart</h1>
       </div>
 
       {cartItems.length === 0 ? (
@@ -43,14 +54,14 @@ export default function Cart() {
               </div>
               <div className="flex items-center space-x-2">
                 <button
-                  onClick={() => removeFromCart(item.foodName)}
+                  onClick={() => handleRemove(item.foodName)} 
                   className="bg-red-600 text-white w-7 h-7 rounded-full text-xl leading-none flex items-center justify-center pb-1"
                 >
                   -
                 </button>
                 <span className="text-white text-lg">{item.quantity}</span>
                 <button
-                  onClick={() => addToCart(item)}
+                  onClick={() => handleAdd(item)} 
                   className="bg-green-600 text-white w-7 h-7 rounded-full text-xl leading-none flex items-center justify-center pb-1"
                 >
                   +

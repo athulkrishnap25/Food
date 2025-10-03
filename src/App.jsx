@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext.jsx"; 
-import { CartProvider } from "./context/CartContext.jsx"; 
+import { Provider } from 'react-redux'; // 🔑 NEW IMPORT
+import store from './redux/store';     // 🔑 NEW IMPORT
 import Instruction1 from "./pages/Instruction1";
 import Instruction2 from "./pages/Instruction2";
 import Instruction3 from "./pages/Instruction3";
@@ -18,7 +19,7 @@ import Beverages from "./pages/Beverages";
 export default function App() {
   return (
     <UserProvider>
-      <CartProvider>
+      <Provider store={store}> 
         <div>
           <Routes>
             <Route path="/" element={<Instruction1 />} />
@@ -34,7 +35,7 @@ export default function App() {
             <Route path="/category/Beverages" element={<Beverages />} />
           </Routes>
         </div>
-      </CartProvider>
+      </Provider>
     </UserProvider>
   );
 }
