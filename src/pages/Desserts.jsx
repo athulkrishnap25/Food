@@ -61,7 +61,7 @@ const DESSERT_FOODS = [
 export default function Desserts() {
   const categoryName = "Desserts";
 
-  const { cartTotal } = useCart();
+  const cartTotal = useSelector((state) => state.cart.totalQuantity);
 
   const [selectedType, setSelectedType] = useState("All");
 
@@ -73,7 +73,6 @@ export default function Desserts() {
     if (selectedType === "Non-Veg") return food.type !== "Veg";
     return food.type.toLowerCase() === selectedType.toLowerCase();
   });
-
   const filterOptions = [
     "All",
     "Veg"

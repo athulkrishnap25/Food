@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../context/UserContext.jsx'; 
-import { useTheme } from '../context/ThemeContext.jsx'; // Import Theme Hook
+import { useTheme } from '../context/ThemeContext.jsx'; 
 import BottomNav from '../components/BottomNav';
 import { FaMoon, FaSun, FaUserCircle, FaEnvelope } from 'react-icons/fa';
 
-const CONTACT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdc2z_A/viewform?usp=sf_link";
+const CONTACT_FORM_URL = "contact link";
 
 export default function Account() {
     const { name } = useContext(UserContext);
@@ -39,7 +39,7 @@ export default function Account() {
                     <span className="text-lg font-medium">{themeButtonText}</span>
                     <ThemeIcon className="w-6 h-6 text-yellow-500 dark:text-yellow-300" />
                 </button>
-                
+
                 <button
                     onClick={handleContactClick}
                     className="w-full flex items-center justify-between p-4 bg-red-600 text-white rounded-xl shadow-md hover:bg-red-700 transition duration-200"

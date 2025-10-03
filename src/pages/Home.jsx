@@ -8,6 +8,7 @@ import BottomNav from "../components/BottomNav";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { useTheme } from '../context/ThemeContext.jsx'; 
 
 const ALL_WEBSITE_FOODS = [
   {

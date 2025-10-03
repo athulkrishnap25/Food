@@ -80,7 +80,7 @@ const CHINESE_FOODS = [
 export default function Chinese() {
   const categoryName = "Chinese";
 
-  const { cartTotal } = useCart();
+  const cartTotal = useSelector((state) => state.cart.totalQuantity); 
 
   const [selectedType, setSelectedType] = useState("All");
 
@@ -90,7 +90,6 @@ export default function Chinese() {
     if (selectedType === "All") return true;
     if (selectedType === "Veg") return food.type === "Veg";
     if (selectedType === "Non-Veg") return food.type !== "Veg";
-    // Note: Added 'Fish' to type filter logic below
     return food.type.toLowerCase() === selectedType.toLowerCase();
   });
 
@@ -101,7 +100,7 @@ export default function Chinese() {
     "Chicken",
     "Mutton",
     "Beef",
-    "Fish",
+    "Fish", 
   ];
 
   return (

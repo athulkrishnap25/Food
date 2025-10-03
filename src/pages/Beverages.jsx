@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaChevronLeft } from "react-icons/fa";
 import { useSelector } from 'react-redux'; 
-
 import FoodCard from "../components/FoodCards.jsx";
 import BottomNav from "../components/BottomNav";
 
@@ -62,7 +61,7 @@ const BEVERAGE_FOODS = [
 export default function Beverages() {
   const categoryName = "Beverages";
 
-  const { cartTotal } = useCart();
+  const cartTotal = useSelector((state) => state.cart.totalQuantity); 
 
   const [selectedType, setSelectedType] = useState("All");
 
@@ -74,7 +73,6 @@ export default function Beverages() {
     if (selectedType === "Non-Veg") return food.type !== "Veg";
     return food.type.toLowerCase() === selectedType.toLowerCase();
   });
-
   const filterOptions = [
     "All",
     "Veg",

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaChevronLeft } from 'react-icons/fa';
-import { useSelector } from 'react-redux'; 
+import { useSelector } from 'react-redux';
 
 import FoodCard from '../components/FoodCards.jsx'; 
 import BottomNav from '../components/BottomNav';
@@ -76,17 +76,19 @@ const SOUTH_INDIAN_FOODS = [
 export default function SouthIndian() {
     const categoryName = "South Indian"; 
     
-    const { cartTotal } = useCart(); 
+    const cartTotal = useSelector(state => state.cart.totalQuantity); 
 
     const [selectedType, setSelectedType] = useState('All'); 
 
     const categoryFoods = SOUTH_INDIAN_FOODS; 
+    
     const filteredFoods = categoryFoods.filter(food => {
         if (selectedType === 'All') return true;
         if (selectedType === 'Veg') return food.type === 'Veg';
         if (selectedType === 'Non-Veg') return food.type !== 'Veg';
         return food.type.toLowerCase() === selectedType.toLowerCase();
     });
+    
     const filterOptions = ['All', 'Veg', 'Non-Veg', 'Chicken', 'Mutton', 'Beef', 'Fish'];
 
     return (

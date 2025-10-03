@@ -1,2 +1,32 @@
 @import "tailwindcss";
   tailwindcss(),
+
+
+:.light .bg-gray-900 {
+  background-color: #ffffff !important; 
+}
+
+.light .bg-gray-800,
+.light .bg-gray-700 {
+  background-color: #f0f8ff !important; 
+}
+
+.light .text-white {
+  color: #000000 !important; 
+}
+
+.light .from-gray-900 {
+  --tw-gradient-from: #f5d392 !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(219, 234, 254, 0)) !important;
+}
+
+.light .to-black {
+  --tw-gradient-to: #ffffff !important;
+}
+
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; 
+}

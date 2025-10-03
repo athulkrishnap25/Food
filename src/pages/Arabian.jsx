@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaChevronLeft } from "react-icons/fa";
-import { useSelector } from 'react-redux'; 
+import { useSelector } from "react-redux";
 
 import FoodCard from "../components/FoodCards.jsx";
 import BottomNav from "../components/BottomNav";
@@ -33,7 +33,7 @@ const ARABIAN_FOODS = [
     foodDescription:
       "Deep-fried balls made from ground chickpeas, served wrapped in pita bread.",
     image:
-      "https://recipes.timesofindia.com/photo/62708678.cms",
+      "https://recipes.timesofindia.indiatimes.com/photo/62708678.cms",
     category: "Arabian",
     type: "Veg",
   },
@@ -62,7 +62,7 @@ const ARABIAN_FOODS = [
 export default function Arabian() {
   const categoryName = "Arabian";
 
-  const { cartTotal } = useCart();
+  const cartTotal = useSelector((state) => state.cart.totalQuantity);
 
   const [selectedType, setSelectedType] = useState("All");
 

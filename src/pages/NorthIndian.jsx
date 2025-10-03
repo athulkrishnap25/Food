@@ -132,7 +132,7 @@ const NORTH_INDIAN_FOODS = [
 export default function NorthIndian() {
     const categoryName = "North Indian"; 
     
-    const { cartTotal } = useCart(); 
+    const cartTotal = useSelector(state => state.cart.totalQuantity); 
 
     const [selectedType, setSelectedType] = useState('All'); 
 
