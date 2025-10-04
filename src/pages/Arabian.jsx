@@ -33,7 +33,7 @@ const ARABIAN_FOODS = [
     foodDescription:
       "Deep-fried balls made from ground chickpeas, served wrapped in pita bread.",
     image:
-      "https://recipes.timesofindia.indiatimes.com/photo/62708678.cms",
+      "https://recipes.timesofindia.com/photo/62708678.cms",
     category: "Arabian",
     type: "Veg",
   },

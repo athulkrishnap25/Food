@@ -7,8 +7,7 @@ import FoodCard from "../components/FoodCards.jsx";
 import BottomNav from "../components/BottomNav";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
-import { useTheme } from '../context/ThemeContext.jsx'; 
+import { FaShoppingCart } from "react-icons/fa";
 
 const ALL_WEBSITE_FOODS = [
   {
@@ -173,6 +172,14 @@ const ALL_WEBSITE_FOODS = [
       "https://www.arabnews.com/sites/default/files/styles/n_670_395/public/2023/04/15/3773861-571269809.jpg?itok=pgy9HiVz",
   },
   {
+    foodName: "Chocolate Fudge Cake",
+    foodPrice: "₹450.00",
+    foodDescription:
+      "Rich, dense chocolate cake with a velvety smooth fudge frosting.",
+    image:
+      "https://www.hickoryfarms.com/on/demandware.static/-/Sites-Web-Master-Catalog/default/dw78363360/images/products/decadent-chocolate-fudge-layer-cake-064026-2.jpg",
+  },
+  {
     foodName: "Falafel Wrap",
     foodPrice: "₹200.00",
     foodDescription:
@@ -227,32 +234,11 @@ const ALL_WEBSITE_FOODS = [
     image: "https://i.redd.it/ixmmb8ufajq61.jpg",
   },
   {
-    foodName: "Appam with Stew",
-    foodPrice: "₹150.00",
-    foodDescription:
-      "Soft lacy appam paired with mildly spiced coconut milk stew.",
-    image:
-      "https://images.slurrp.com/prodarticles/ln1j9x0luf.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75",
-  },
-  {
-    foodName: "Puttu with Kadala Curry",
-    foodPrice: "₹100.00",
-    foodDescription: "Steamed rice flour cylinders with black chickpea curry.",
-    image: "https://i.ytimg.com/vi/e2kxi7BxvLs/maxresdefault.jpg",
-  },
-  {
     foodName: "Fish Moilee",
     foodPrice: "₹220.00",
     foodDescription: "Fish simmered in creamy coconut milk with subtle spices.",
     image:
       "https://cdn.grofers.com/assets/search/usecase/banner/kerala_fish_moilee_01.png",
-  },
-  {
-    foodName: "Kerala Sadya",
-    foodPrice: "₹350.00",
-    foodDescription:
-      "Traditional feast of 24+ vegetarian dishes served on banana leaf.",
-    image: "https://www.keralatourism.org/images/cuisine/sadya-1024x576.jpg",
   },
   {
     foodName: "Erachi Varutharacha",
@@ -314,143 +300,6 @@ const ALL_WEBSITE_FOODS = [
       "Fragrant biryani from Malabar made with short-grain rice.",
     image:
       "https://4.bp.blogspot.com/-ki7mtItaI4I/WAE0421NZaI/AAAAAAAAAnk/1suTKwebHBYz-XPe07rUhJ2nj9OyZGj3ACLcB/s1600/z15.jpg",
-  },
-  {
-    foodName: "Meen Curry",
-    foodPrice: "₹230.00",
-    foodDescription:
-      "Tangy fish curry with tamarind and coconut oil tempering.",
-    image:
-      "https://melam.com/wp-content/uploads/2022/12/alappuzha-meen-curry.jpg",
-  },
-
-  {
-    foodName: "Chicken Tikka Masala",
-    foodPrice: "₹400.00",
-    foodDescription:
-      "Classic Indian dish with tender chicken in a creamy tomato sauce.",
-    image:
-      "https://www.licious.in/blog/wp-content/uploads/2020/12/Chicken-Tikka-Masala-min.jpg",
-  },
-  {
-    foodName: "Spicy Beef Burger",
-    foodPrice: "₹350.00",
-    foodDescription:
-      "Juicy beef patty topped with jalapeños, pepper jack, and a spicy mayo.",
-    image:
-      "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-edgarcastrejon2-burger-018.jpg?w=400&dpr=1&fit=default&crop=default&auto=format&fm=pjpg&q=75&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-1.1.1&s=b45744391b6a95bed5528dd93ae318c7",
-  },
-  {
-    foodName: "Veggie Spring Rolls",
-    foodPrice: "₹120.00",
-    foodDescription:
-      "Crispy fried rolls filled with fresh cabbage, carrots, and glass noodles.",
-    image:
-      "https://www.connoisseurusveg.com/wp-content/uploads/2022/04/baked-spring-rolls-sq.jpg",
-  },
-  {
-    foodName: "Parotta with Beef Curry",
-    foodPrice: "₹180.00",
-    foodDescription:
-      "Flaky layered parotta served with spicy Kerala beef curry.",
-    image: "https://i.redd.it/ixmmb8ufajq61.jpg",
-  },
-  {
-    foodName: "Appam with Stew",
-    foodPrice: "₹150.00",
-    foodDescription:
-      "Soft lacy appam paired with mildly spiced coconut milk stew.",
-    image:
-      "https://images.slurrp.com/prodarticles/ln1j9x0luf.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75",
-  },
-  {
-    foodName: "Puttu with Kadala Curry",
-    foodPrice: "₹100.00",
-    foodDescription: "Steamed rice flour cylinders with black chickpea curry.",
-    image: "https://i.ytimg.com/vi/e2kxi7BxvLs/maxresdefault.jpg",
-  },
-  {
-    foodName: "Fish Moilee",
-    foodPrice: "₹220.00",
-    foodDescription: "Fish simmered in creamy coconut milk with subtle spices.",
-    image:
-      "https://cdn.grofers.com/assets/search/usecase/banner/kerala_fish_moilee_01.png",
-  },
-  {
-    foodName: "Kerala Sadya",
-    foodPrice: "₹350.00",
-    foodDescription:
-      "Traditional feast of 24+ vegetarian dishes served on banana leaf.",
-    image: "https://www.keralatourism.org/images/cuisine/sadya-1024x576.jpg",
-  },
-  {
-    foodName: "Erachi Varutharacha",
-    foodPrice: "₹210.00",
-    foodDescription: "Beef cooked in roasted coconut and spices, Kerala style.",
-    image:
-      "https://www.slurrp.com/web/_next/image?url=https:%2F%2Fimages.slurrp.com%2Fprod%2Frecipe_images%2Ftranscribe%2Fmain%20course%2FErachi-Varutharacha-Curry.webp%3Fimpolicy%3Dslurrp-20210601%26width%3D1200%26height%3D675&w=3840&q=75",
-  },
-  {
-    foodName: "Kerala Prawn Roast",
-    foodPrice: "₹250.00",
-    foodDescription:
-      "Spicy prawns roasted with onions, curry leaves, and coconut oil.",
-    image:
-      "https://tse3.mm.bing.net/th/id/OIP.fulpzb-ClUFHoH8K5S102gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
-  },
-  {
-    foodName: "Karimeen Pollichathu",
-    foodPrice: "₹300.00",
-    foodDescription: "Pearl spot fish marinated and wrapped in banana leaf.",
-    image:
-      "https://www.krazybutterfly.com/wp-content/uploads/2022/01/Niraamaya-Karimeen-Pollichathu-e1643300273851.jpg",
-  },
-  {
-    foodName: "Kerala Chicken Fry",
-    foodPrice: "₹180.00",
-    foodDescription:
-      "Deep-fried chicken pieces with Kerala spices and curry leaves.",
-    image:
-      "https://hungryforever.net/wp-content/uploads/2018/01/kerala-style-chicken-fry-600x286.jpg",
-  },
-  {
-    foodName: "Idiyappam Egg Curry",
-    foodPrice: "₹160.00",
-    foodDescription: "String hoppers served with spicy Kerala-style egg curry.",
-    image:
-      "https://images.slurrp.com/prod/articles/j67tfxujzj.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75",
-  },
-  {
-    foodName: "Nadan Kozhi Curry",
-    foodPrice: "₹190.00",
-    foodDescription:
-      "Traditional Kerala chicken curry cooked with coconut oil.",
-    image:
-      "https://tse2.mm.bing.net/th/id/OIP.ImZKCamYQWQlrd5ODdsB9QHaLG?rs=1&pid=ImgDetMain&o=7&rm=3",
-  },
-  {
-    foodName: "Avial",
-    foodPrice: "₹120.00",
-    foodDescription:
-      "Mixed vegetables cooked with coconut, yogurt, and curry leaves.",
-    image:
-      "https://www.masalakorb.com/wp-content/uploads/2021/06/Easy-Aviyal-Recipe-Aviyal-Curry-V1.jpeg",
-  },
-  {
-    foodName: "Thalassery Biryani",
-    foodPrice: "₹280.00",
-    foodDescription:
-      "Fragrant biryani from Malabar made with short-grain rice.",
-    image:
-      "https://4.bp.blogspot.com/-ki7mtItaI4I/WAE0421NZaI/AAAAAAAAAnk/1suTKwebHBYz-XPe07rUhJ2nj9OyZGj3ACLcB/s1600/z15.jpg",
-  },
-  {
-    foodName: "Meen Curry",
-    foodPrice: "₹230.00",
-    foodDescription:
-      "Tangy fish curry with tamarind and coconut oil tempering.",
-    image:
-      "https://melam.com/wp-content/uploads/2022/12/alappuzha-meen-curry.jpg",
   },
   {
     foodName: "Masala Chai",
@@ -490,15 +339,115 @@ const ALL_WEBSITE_FOODS = [
       "Non-alcoholic mocktail with fresh strawberries, mint, lime, and soda.",
     image: "https://bakesbychichi.com/wp-content/uploads/2021/07/DSC_4890.jpg",
   },
+  {
+      foodName: "Chicken Tikka Masala",
+      foodPrice: "₹400.00",
+      foodDescription: "Classic Indian dish with tender chicken in a creamy tomato sauce.",
+      image: "https://www.licious.in/blog/wp-content/uploads/2020/12/Chicken-Tikka-Masala-min.jpg",
+    },
+    {
+      foodName: "Shahi Paneer",
+      foodPrice: "₹380.00",
+      foodDescription: "Cottage cheese cubes cooked in a thick, creamy, royal-style gravy.",
+      image: "https://tse1.mm.bing.net/th/id/OIP.9Gcof8tZSHlQYs87PZM-BQHaGr?rs=1&pid=ImgDetMain&o=7&rm=3",
+    },
+    {
+      foodName: "Butter Chicken",
+      foodPrice: "₹450.00",
+      foodDescription: "Rich and creamy tomato-based curry with tender chicken pieces.",
+      image: "https://www.licious.in/blog/wp-content/uploads/2020/10/butter-chicken--750x750.jpg",
+    },
+    {
+      foodName: "Mutton Rogan Josh",
+      foodPrice: "₹550.00",
+      foodDescription: "Authentic Kashmiri style slow-cooked mutton curry with aromatic spices.",
+      image: "https://th.bing.com/th/id/R.fb86ed11c8296131f6fa21eab32c698f?rik=P6Ig1y%2fvMVI3tg&riu=http%3a%2f%2fzuranazrecipe.com%2fwp-content%2fuploads%2f2016%2f07%2fMutton-Rogan-Joshhh.jpg&ehk=wj%2bZ%2fMJSZCJDEAXJa%2fl5O1gHQDaitZKonQHcHeXg0ug%3d&risl=&pid=ImgRaw&r=0",
+    },
+    {
+      foodName: "Palak Paneer",
+      foodPrice: "₹320.00",
+      foodDescription: "Spinach puree cooked with cottage cheese and spices.",
+      image: "https://tse4.mm.bing.net/th/id/OIP.GwXzFGmT-REKNq5WKJNUOgHaF2?rs=1&pid=ImgDetMain&o=7&rm=3",
+    },
+    {
+      foodName: "Dal Makhani",
+      foodPrice: "₹280.00",
+      foodDescription: "Slow-cooked black lentils and kidney beans with butter and cream.",
+      image: "https://tse2.mm.bing.net/th/id/OIP.cO1N7ff2Vp2wt98Yx39JcwHaLG?rs=1&pid=ImgDetMain&o=7&rm=3",
+
+    },
+    {
+      foodName: "Chicken Korma",
+      foodPrice: "₹420.00",
+      foodDescription: "Chicken simmered in a mildly spiced, creamy yogurt-based curry.",
+      image: "https://www.teaforturmeric.com/wp-content/uploads/2018/06/Authentic-Chicken-Korma_-2.jpg",
+
+    },
+    {
+      foodName: "Beef Korma",
+      foodPrice: "₹500.00",
+      foodDescription: "Tender beef cooked in a rich and flavorful North Indian style korma gravy.",
+      image: "https://nishkitchen.com/wp-content/uploads/2019/09/Beef-Korma-2B.jpg",
+
+    },
+    {
+      foodName: "Rajma Masala",
+      foodPrice: "₹250.00",
+      foodDescription: "Red kidney beans cooked in a thick, spiced tomato-onion gravy.",
+      image: "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/07/rajma-recipe.jpg",
+
+    },
+    {
+      foodName: "Mutton Biryani",
+      foodPrice: "₹600.00",
+      foodDescription: "Fragrant basmati rice layered with juicy mutton and aromatic spices.",
+      image: "https://www.cookwithnabeela.com/wp-content/uploads/2024/02/MuttonBiryani.webp",
+
+    },
+    {
+      foodName: "Paneer Butter Masala",
+      foodPrice: "₹360.00",
+      foodDescription: "Cottage cheese cubes in a buttery, mildly sweet tomato gravy.",
+      image: "https://i.pinimg.com/originals/88/08/26/8808269e6adf0f090788e00c07681e1d.jpg",
+
+    },
+    {
+      foodName: "Chicken Biryani",
+      foodPrice: "₹500.00",
+      foodDescription: "Long-grain basmati rice layered with spiced chicken and saffron.",
+      image: "https://tse4.mm.bing.net/th/id/OIP.r6T2zRnyrrP8LdtOEaGVowHaGl?rs=1&pid=ImgDetMain&o=7&rm=3",
+
+    },
+    {
+      foodName: "Beef Seekh Kebab",
+      foodPrice: "₹480.00",
+      foodDescription: "Juicy minced beef kebabs grilled on skewers with Indian spices.",
+      image: "https://tse3.mm.bing.net/th/id/OIP.PO09rnWbRj-ubRPWWU3ZXQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
+
+    },
+    {
+      foodName: "Aloo Paratha with Curd",
+      foodPrice: "₹180.00",
+      foodDescription: "Stuffed wheat paratha with spiced mashed potatoes served with curd and pickle.",
+      image: "https://i0.wp.com/pixahive.com/wp-content/uploads/2020/08/Aloo-paratha-with-curd-10748-pixahive.jpg?fit=1080%2C800&ssl=1",
+
+    },
+    {
+      foodName: "Mutton Keema Curry",
+      foodPrice: "₹520.00",
+      foodDescription: "Spicy minced mutton curry cooked with onions, tomatoes, and peas.",
+      image: "https://yummyindiankitchen.com/wp-content/uploads/2016/01/hyderabadi-keema-mutton-keema-curry.jpg",
+
+    }
+
 ];
 
 export default function Home() {
   const { name } = useContext(UserContext);
   const cartTotal = useSelector(state => state.cart.totalQuantity);
-    const cartItems = useSelector(state => state.cart.items);
 
   const [searchTerm, setSearchTerm] = useState("");
- 
+
   const categories = [
     {
       name: "North Indian",
@@ -681,28 +630,25 @@ export default function Home() {
     },
   ];
 
-  const filteredFoods = suggestedFoods.filter((food) =>
+  const filteredFoods = ALL_WEBSITE_FOODS.filter((food) =>
     food.foodName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-   const SPLASH_KEY = 'splashShown';
-  const checkSplashStatus = () => {
-  return !sessionStorage.getItem(SPLASH_KEY);
-};
+  const SPLASH_KEY = 'splashShown';
   const [showSplash, setShowSplash] = useState(
-  !sessionStorage.getItem(SPLASH_KEY)
-);
+    !sessionStorage.getItem(SPLASH_KEY)
+  );
 
-   useEffect(() => {
-  if (showSplash) {
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-      sessionStorage.setItem(SPLASH_KEY, 'true'); 
-    }, 2000);
+  useEffect(() => {
+    if (showSplash) {
+      const timer = setTimeout(() => {
+        setShowSplash(false);
+        sessionStorage.setItem(SPLASH_KEY, 'true');
+      }, 2000);
 
-    return () => clearTimeout(timer);
-  }
-}, [showSplash]);
+      return () => clearTimeout(timer);
+    }
+  }, [showSplash]);
 
   if (showSplash) {
     return (
@@ -713,7 +659,7 @@ export default function Home() {
   }
 
   return (
-    
+
     <div className="relative bg-gradient-to-r from-gray-900 to-black text-white min-h-screen">
       <div className="flex justify-between items-center p-5">
         <h1 className="text-4xl font-bold text-left">QuickBite</h1>
@@ -772,31 +718,45 @@ export default function Home() {
           {searchTerm ? "Search Results" : "Suggested For You "}
         </h1>
         <div className="p-4">
-          <div className="flex gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
-            {filteredFoods
-              .slice()
-              .reverse()
-              .map((food, index) => (
+          {searchTerm ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 justify-items-center">
+              {filteredFoods.map((food, index) => (
                 <FoodCard
-                  key={food.foodName}
+                  key={`${food.foodName}-${index}`}
                   image={food.image}
                   foodName={food.foodName}
                   foodPrice={food.foodPrice}
                   foodDescription={food.foodDescription}
                 />
               ))}
-          </div>
+            </div>
+          ) : (
+            <div className="flex gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
+              {suggestedFoods
+                .slice()
+                .reverse()
+                .map((food, index) => (
+                  <FoodCard
+                    key={`${food.foodName}-${index}`}
+                    image={food.image}
+                    foodName={food.foodName}
+                    foodPrice={food.foodPrice}
+                    foodDescription={food.foodDescription}
+                  />
+                ))}
+            </div>
+          )}
         </div>
       </div>
 
       {!searchTerm && (
         <div className="p-4">
-          <h1 className="text-2xl font-bold mb-4">Newly Added</h1>
+          <h1 className="text-2xl font-bold mb-4">All Items</h1>
           <div className="p-4">
-            <div className="flex gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
-              {suggestedFoods.map((food, index) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 justify-items-center">
+              {ALL_WEBSITE_FOODS.map((food, index) => (
                 <FoodCard
-                  key={food.foodName}
+                  key={`${food.foodName}-${index}`}
                   image={food.image}
                   foodName={food.foodName}
                   foodPrice={food.foodPrice}
@@ -807,31 +767,10 @@ export default function Home() {
           </div>
         </div>
       )}
-      <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4">All Items</h1>
-    <div className="p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 justify-items-center">
-        {ALL_WEBSITE_FOODS.map((food, index) => (
-          <FoodCard
-            key={food.foodName}
-            image={food.image}
-            foodName={food.foodName}
-            foodPrice={food.foodPrice}
-            foodDescription={food.foodDescription}
-          />
-        ))}
-      </div>
-      </div>
-    
-    
-</div>
-
       <br />
       <br />
       <br />
       <BottomNav />
-      
     </div>
-    
   );
 }
