@@ -713,6 +713,7 @@ export default function Home() {
   }
 
   return (
+    
     <div className="relative bg-gradient-to-r from-gray-900 to-black text-white min-h-screen">
       <div className="flex justify-between items-center p-5">
         <h1 className="text-4xl font-bold text-left">QuickBite</h1>
@@ -821,12 +822,16 @@ export default function Home() {
         ))}
       </div>
     </div>
+    
+    
 </div>
 
       <br />
       <br />
       <br />
       <BottomNav />
+      
     </div>
+    
   );
 }

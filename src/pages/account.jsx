@@ -4,7 +4,7 @@ import { useTheme } from '../context/ThemeContext.jsx';
 import BottomNav from '../components/BottomNav';
 import { FaMoon, FaSun, FaUserCircle, FaEnvelope } from 'react-icons/fa';
 
-const CONTACT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdHQpDf92qz4K46xkel6iTkk3cd19RPuItTpLsgORTyj2yK2g/viewform?usp=header";
+const CONTACT_FORM_URL = "https://page.botpenguin.com/68e0b5c465bb65210ffeadb9/68e0ad6c3661c40050691e38/agent";
 
 export default function Account() {
     const { name } = useContext(UserContext);
@@ -44,7 +44,7 @@ export default function Account() {
                     onClick={handleContactClick}
                     className="w-full flex items-center justify-between p-4 bg-red-600 text-white rounded-xl shadow-md hover:bg-red-700 transition duration-200"
                 >
-                    <span className="text-lg font-medium">Contact Support</span>
+                    <span className="text-lg font-medium">AI Contact Support</span>
                     <FaEnvelope className="w-6 h-6" />
                 </button>
             </div>

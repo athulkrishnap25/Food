@@ -39,6 +39,7 @@ export default function App() {
             <Route path="/category/Beverages" element={<Beverages />} />
             <Route path="/orders" element={<Orders />} />
              <Route path="/account" element={<Account />} />
+             
           </Routes>
         </div>
         </ThemeProvider>
