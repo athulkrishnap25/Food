@@ -1,11 +1,17 @@
 import React from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'; 
 import { addToCart } from '../redux/cartSlice'; 
+import { FaCheck } from 'react-icons/fa'; 
 
 export default function FoodCard({ image, foodName, foodPrice, foodDescription }) {
     const dispatch = useDispatch();
     
     const product = { image, foodName, foodPrice, foodDescription };
+
+
+    const itemInCart = useSelector(state => 
+        state.cart.items.find(item => item.foodName === foodName)
+    );
 
     const handleAddToCart = () => {
         dispatch(addToCart(product)); 
@@ -21,13 +27,24 @@ export default function FoodCard({ image, foodName, foodPrice, foodDescription }
             <p className="text-left text-green-400 font-semibold text-xl w-full mb-2">{foodPrice}</p>
             <p className="text-left text-gray-300 text-sm w-full mb-4 line-clamp-2">{foodDescription}</p>
 
-           <button 
-                onClick={handleAddToCart} 
-                className="bg-green-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300"
-            >
-                Add to Cart
-            </button>
-
+            {itemInCart ? (
+                
+                <button 
+                    
+                    onClick={() => {}} 
+                    className="w-full flex items-center justify-center space-x-2 border-2 border-green-500 text-green-500 font-bold py-2 px-4 rounded-full transition duration-300 cursor-default"
+                >
+                    <FaCheck />
+                    <span>Added ({itemInCart.quantity})</span>
+                </button>
+            ) : (
+                <button 
+                    onClick={handleAddToCart}
+                    className="bg-green-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300"
+                >
+                    Add to Cart
+                </button>
+            )}
         </div>
     );
 }
