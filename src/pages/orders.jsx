@@ -1,5 +1,3 @@
-// src/pages/Orders.jsx
-
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -7,10 +5,7 @@ import { FaCheckCircle, FaClock, FaBox } from 'react-icons/fa';
 import BottomNav from '../components/BottomNav';
 
 export default function Orders() {
-    // Read the order history from the Redux store
     const orderHistory = useSelector(state => state.orders.history);
-    
-    // The most recent order is always the first one
     const latestOrder = orderHistory[0];
 
     return (
@@ -28,7 +23,6 @@ export default function Orders() {
                 </p>
             ) : (
                 <div className="px-5">
-                    {/* CONFIRMATION CARD (Focus on the latest order) */}
                     {latestOrder && (
                         <div className="bg-green-800 bg-opacity-30 border border-green-700 p-6 rounded-xl mb-8 shadow-2xl">
                             <div className="flex items-center space-x-3 mb-4">
@@ -48,7 +42,6 @@ export default function Orders() {
                         </div>
                     )}
 
-                    {/* ORDER HISTORY LIST */}
                     <h2 className="text-2xl font-bold mb-4 border-b border-gray-700 pb-2">Order History</h2>
                     
                     {orderHistory.map((order, index) => (
