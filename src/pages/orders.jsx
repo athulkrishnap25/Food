@@ -30,14 +30,14 @@ export default function Orders() {
                                 <h2 className="text-2xl font-bold text-green-400">Order Successful!</h2>
                             </div>
                             <p className="text-lg mb-2">
-                                Your order **#{latestOrder.id}** has been placed.
+                                Your order #{latestOrder.id} has been placed.
                             </p>
                             <p className="flex items-center space-x-2 text-xl font-bold text-yellow-300">
                                 <FaClock className="w-5 h-5" />
-                                Estimated Delivery: **{latestOrder.deliveryEstimate}**
+                                Estimated Delivery: {latestOrder.deliveryEstimate}
                             </p>
                             <p className="mt-4 text-sm text-gray-300">
-                                Total Paid: **₹{latestOrder.totalPrice}**
+                                Total Paid: ₹{latestOrder.totalPrice}
                             </p>
                         </div>
                     )}
