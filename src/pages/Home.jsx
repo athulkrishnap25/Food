@@ -775,7 +775,7 @@ export default function Home() {
           <div className="flex gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
             {filteredFoods
               .slice()
-              .sort(() => (searchTerm ? 0 : Math.random() - 0.5))
+              .reverse()
               .map((food, index) => (
                 <FoodCard
                   key={food.foodName}
