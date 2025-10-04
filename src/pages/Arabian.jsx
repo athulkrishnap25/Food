@@ -78,7 +78,7 @@ export default function Arabian() {
   const filterOptions = ["All", "Veg", "Non-Veg", "Chicken", "Mutton", "Beef"];
 
   return (
-    <div className="relative w-screen bg-gradient-to-r from-gray-900 to-black text-white min-h-screen">
+    <div className="relative bg-gradient-to-r from-gray-900 to-black text-white min-h-screen">
       <div className="flex justify-between items-center p-5">
         <div className="flex items-center space-x-3">
           <Link to="/home" className="text-white">
