@@ -810,7 +810,7 @@ export default function Home() {
       <div className="p-4">
             <h1 className="text-2xl font-bold mb-4">All Items</h1>
     <div className="p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 justify-items-center">
         {ALL_WEBSITE_FOODS.map((food, index) => (
           <FoodCard
             key={food.foodName}
@@ -821,7 +821,7 @@ export default function Home() {
           />
         ))}
       </div>
-    </div>
+      </div>
     
     
 </div>
