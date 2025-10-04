@@ -40,7 +40,7 @@ export default function FoodCard({ image, foodName, foodPrice, foodDescription }
             ) : (
                 <button 
                     onClick={handleAddToCart}
-                    className="bg-green-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300"
+                    className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300"
                 >
                     Add to Cart
                 </button>
