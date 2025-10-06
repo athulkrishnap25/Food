@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { UserContext } from '../context/UserContext.jsx'; 
 import { useTheme } from '../context/ThemeContext.jsx'; 
 import BottomNav from '../components/BottomNav';
-import { FaMoon, FaSun, FaUserCircle, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaMoon, FaSun, FaUserCircle, FaEnvelope, FaPhone, FaInfoCircle } from 'react-icons/fa'; 
+import { Link } from 'react-router-dom'; 
 
 const CONTACT_EMAIL = "athulkrishnapjio@gmail.com";
 const CONTACT_PHONE = "9778009265";
@@ -25,7 +26,6 @@ export default function Account() {
             </div>
 
             <div className="px-5 space-y-6">
-
                 <div className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
                     <FaUserCircle className="w-10 h-10 text-red-500 dark:text-red-400" />
                     <div>
@@ -33,8 +33,6 @@ export default function Account() {
                         <h2 className="text-2xl font-semibold capitalize">{name ? name : "Guest"}</h2>
                     </div>
                 </div>
-
-
                 <button
                     onClick={toggleTheme}
                     className="w-full flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200"
@@ -42,13 +40,22 @@ export default function Account() {
                     <span className="text-lg font-medium">{themeButtonText}</span>
                     <ThemeIcon className="w-6 h-6 text-yellow-500 dark:text-yellow-300" />
                 </button>
+                
+                <Link
+                    to="/info" 
+                    className="w-full flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200"
+                >
+                    <span className="text-lg font-medium">About Us</span>
+                    <FaInfoCircle className="w-6 h-6 text-blue-500 dark:text-blue-400" />
+                </Link>
+
 
                 <div className="space-y-3 pt-2">
                     <h3 className="text-xl font-semibold">Support & Contact</h3>
 
                     <a
                         href={`mailto:${CONTACT_EMAIL}`}
-                        className="w-full flex items-center space-x-4 p-4 bg-blue-400 text-white rounded-xl shadow-md hover:bg-blue-600 transition duration-200"
+                        className="w-full flex items-center space-x-4 p-4 bg-red-600 text-white rounded-xl shadow-md hover:bg-red-700 transition duration-200"
                     >
                         <FaEnvelope className="w-6 h-6 flex-shrink-0" />
                         <div>
@@ -58,14 +65,13 @@ export default function Account() {
 
                     <a
                         href={`tel:${CONTACT_PHONE}`}
-                        className="w-full flex items-center space-x-4 p-4 bg-blue-400 text-white rounded-xl shadow-md hover:bg-blue-600 transition duration-200"
+                        className="w-full flex items-center space-x-4 p-4 bg-red-600 text-white rounded-xl shadow-md hover:bg-red-700 transition duration-200"
                     >
                         <FaPhone className="w-6 h-6 flex-shrink-0" />
                         <div>
                             <span className="block font-medium">Phone: {CONTACT_PHONE}</span>
                         </div>
                     </a>
-                    
                     
                     <button
                         onClick={handleChatClick}
@@ -76,7 +82,7 @@ export default function Account() {
                     </button>
                 </div>
 
-            </div> 
+            </div>
 
             <div className="mt-20">
                 <BottomNav />

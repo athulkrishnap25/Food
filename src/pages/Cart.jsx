@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
 import BottomNav from "../components/BottomNav";
 import { FaTrashAlt } from 'react-icons/fa';
-
 import { addToCart, removeFromCart, clearCart } from '../redux/cartSlice'; 
 import { placeOrder } from '../redux/ordersSlice'; 
 

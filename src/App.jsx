@@ -16,6 +16,7 @@ import Beverages from "./pages/Beverages";
 import Orders from "./pages/orders";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import Account from "./pages/account";
+import InfoPage from "./pages/InfoPage"; 
 
 
 
@@ -39,7 +40,7 @@ export default function App() {
             <Route path="/category/Beverages" element={<Beverages />} />
             <Route path="/orders" element={<Orders />} />
              <Route path="/account" element={<Account />} />
-             
+             <Route path="/info" element={<InfoPage />} /> 
           </Routes>
         </div>
         </ThemeProvider>
