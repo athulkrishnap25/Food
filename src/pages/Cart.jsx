@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from 'react-redux'; 
 import { Link, useNavigate } from "react-router-dom";
 import BottomNav from "../components/BottomNav";
+import { FaTrashAlt } from 'react-icons/fa';
 
 import { addToCart, removeFromCart, clearCart } from '../redux/cartSlice'; 
 import { placeOrder } from '../redux/ordersSlice'; 
@@ -11,6 +12,7 @@ export default function Cart() {
   const cartItems = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
+  
   const totalPrice = cartItems.reduce((sum, item) => {
     const price = parseFloat(item.foodPrice.replace("₹", ""));
     return sum + price * item.quantity;
@@ -28,14 +30,21 @@ export default function Cart() {
     if (cartItems.length === 0) return;
 
     const orderPayload = {
-        items: cartItems,
-        totalPrice: totalPrice.toFixed(2),
+      items: cartItems,
+      totalPrice: totalPrice.toFixed(2),
     };
     dispatch(placeOrder(orderPayload));
     dispatch(clearCart());
 
     navigate('/orders'); 
   };
+  
+  const handleClearCart = () => {
+    if (window.confirm("Are you sure you want to clear your entire cart?")) {
+        dispatch(clearCart());
+    }
+  };
+
 
   return (
     <div className="relative min-h-screen bg-gradient-to-r from-gray-900 to-black text-white">
@@ -43,12 +52,26 @@ export default function Cart() {
         <Link to="/home" className="text-red-500 text-sm mb-4 block">
           ← Back to Home
         </Link>
-        <h1 className="text-4xl font-bold mb-8">Your Cart</h1>
+        
+        <div className="flex justify-between items-center">
+            <h1 className="text-4xl font-bold mb-0">Your Cart</h1>
+            
+            {cartItems.length > 0 && (
+                <button
+                    onClick={handleClearCart}
+                    className="p-2 text-sm text-gray-400 hover:text-red-500 transition-colors flex items-center space-x-1"
+                >
+                    <FaTrashAlt className="w-4 h-4" />
+                    <span>Clear Cart</span>
+                </button>
+            )}
+        </div>
+        <div className="mb-8"></div> 
       </div>
 
       {cartItems.length === 0 ? (
         <p className="text-center text-gray-400 text-xl mt-20">
-          Your cart is empty!
+          Your cart is empty! 
         </p>
       ) : (
         <div className="px-5">
