@@ -10,7 +10,7 @@ const CONTACT_PHONE = "9778009265";
 const CHAT_SUPPORT_URL = "https://page.botpenguin.com/68e0b5c465bb65210ffeadb9/68e0ad6c3661c40050691e38/agent";
 
 export default function Account() {
-    const { name } = useContext(UserContext);
+    const { name, email, password } = useContext(UserContext); 
     const { theme, toggleTheme } = useTheme();
     const themeButtonText = theme === 'dark' ? 'Switch to Light' : 'Switch to Dark';
     const ThemeIcon = theme === 'dark' ? FaSun : FaMoon;
@@ -26,13 +26,25 @@ export default function Account() {
             </div>
 
             <div className="px-5 space-y-6">
-                <div className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-                    <FaUserCircle className="w-10 h-10 text-red-500 dark:text-red-400" />
-                    <div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Signed in as:</p>
+
+                <div className="space-y-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+                    <div className="flex items-center space-x-4">
+                        <FaUserCircle className="w-10 h-10 text-red-500 dark:text-red-400" />
                         <h2 className="text-2xl font-semibold capitalize">{name ? name : "Guest"}</h2>
                     </div>
+                    <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Email Address:</p>
+                        <p className="text-lg font-medium break-all">{email || 'Not Provided'}</p>
+                    </div>
+
+                    <div>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Password Status:</p>
+                        <p className="text-lg font-medium">
+                            {password ? '********' : 'Not Set'}
+                        </p>
+                    </div>
                 </div>
+
                 <button
                     onClick={toggleTheme}
                     className="w-full flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200"
@@ -40,7 +52,7 @@ export default function Account() {
                     <span className="text-lg font-medium">{themeButtonText}</span>
                     <ThemeIcon className="w-6 h-6 text-yellow-500 dark:text-yellow-300" />
                 </button>
-                
+
                 <Link
                     to="/info" 
                     className="w-full flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200"
@@ -81,6 +93,16 @@ export default function Account() {
                         <span className="text-lg font-medium">Chat with AI Support</span>
                     </button>
                 </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
 
             </div>
 

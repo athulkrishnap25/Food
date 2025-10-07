@@ -4,15 +4,44 @@ import { UserContext } from "../context/UserContext.jsx";
 import chef from "../assets/welcomepage.png";
 
 export default function Instruction1() {
-  const { setName } = useContext(UserContext);
-  const [input, setInput] = useState("");
+  const { setUserData } = useContext(UserContext); 
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const handleNext = () => {
-    if (input.trim()) {
-      setName(input);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required.';
+    }
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email.';
+    }
+    if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters.';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+    if (validate()) {
+   
+      setUserData(formData); 
       navigate("/instruction/2");
-    } else {
-      alert("Please enter your name");
     }
   };
 
@@ -23,21 +52,53 @@ export default function Instruction1() {
           Welcome to QuickBite
         </h1>
         <p className="mb-4 text-lg text-center md:text-left">
-          Enter your name to get started:
+          Enter your details to get started:
         </p>
-        <input
-          type="text"
-          placeholder="Enter Your Name"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="px-4 py-2 rounded-full text-black mb-4 bg-gray-50 w-64 md:w-72"
-        />
-        <button
-          onClick={handleNext}
-          className="px-4 py-2 rounded-full font-semibold bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900  text-white shadow-md  hover:from-gray-600 hover:via-gray-700 hover:to-gray-800  hover:shadow-lg hover:scale-105  transition-all duration-300 ease-in-out"
-        >
-          Next →
-        </button>
+        <form onSubmit={handleSubmit} className="w-full flex flex-col items-center space-y-3">
+          
+          <div className="w-64 md:w-72">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-2 rounded-full text-black bg-gray-50"
+            />
+            {errors.name && <p className="text-sm text-yellow-400 mt-1">{errors.name}</p>}
+          </div>
+
+          <div className="w-64 md:w-72">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-2 rounded-full text-black bg-gray-50"
+            />
+            {errors.email && <p className="text-sm text-yellow-400 mt-1">{errors.email}</p>}
+          </div>
+
+          <div className="w-64 md:w-72">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password (min 6 characters)"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full px-4 py-2 rounded-full text-black bg-gray-50"
+            />
+            {errors.password && <p className="text-sm text-yellow-400 mt-1">{errors.password}</p>}
+          </div>
+
+          <button
+            type="submit" 
+            className="w-64 md:w-72 px-4 py-2 rounded-full font-semibold bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out mt-4"
+          >
+            Next →
+          </button>
+        </form>
       </div>
       <img src={chef} alt="Chef" className="w-72 md:w-96 h-auto" />
     </div>
