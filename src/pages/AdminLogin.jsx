@@ -18,7 +18,7 @@ export default function AdminLogin() {
     e.preventDefault();
     
     if (formData.username.trim() && formData.adminPassword.trim()) {
-      console.log("Admin Login Successful (Test Mode)!");
+      console.log("Admin Login Successful!");
       navigate("/admin/dashboard"); 
     } else {
       setError('Username and Password cannot be empty.');
@@ -46,7 +46,7 @@ export default function AdminLogin() {
               value={formData.username}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:ring-red-500 focus:border-red-500 placeholder-gray-400"
-              placeholder="Enter anything here"
+              placeholder="Enter username"
               required
             />
           </div>
@@ -61,7 +61,7 @@ export default function AdminLogin() {
               value={formData.adminPassword}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:ring-red-500 focus:border-red-500 placeholder-gray-400"
-              placeholder="Enter anything here"
+              placeholder="Enter password"
               required
             />
           </div>
