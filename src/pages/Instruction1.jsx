@@ -5,7 +5,7 @@ import chef from "../assets/welcomepage.png";
 
 export default function Instruction1() {
   const { setUserData } = useContext(UserContext); 
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -39,7 +39,7 @@ export default function Instruction1() {
   const handleSubmit = (e) => {
     e.preventDefault(); 
     if (validate()) {
-   
+
       setUserData(formData); 
       navigate("/instruction/2");
     }
@@ -55,7 +55,7 @@ export default function Instruction1() {
           Enter your details to get started:
         </p>
         <form onSubmit={handleSubmit} className="w-full flex flex-col items-center space-y-3">
-          
+
           <div className="w-64 md:w-72">
             <input
               type="text"
@@ -98,6 +98,17 @@ export default function Instruction1() {
           >
             Next →
           </button>
+          
+          <div className="mt-2 text-sm">
+            <button
+              type="button"
+              onClick={() => navigate("/admin/login")}
+              className="text-gray-400 hover:text-red-500 transition-colors duration-200"
+            >
+              Admin Login
+            </button>
+          </div>
+
         </form>
       </div>
       <img src={chef} alt="Chef" className="w-72 md:w-96 h-auto" />

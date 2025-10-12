@@ -17,7 +17,10 @@ import Orders from "./pages/orders";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import Account from "./pages/account";
 import InfoPage from "./pages/InfoPage"; 
-
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+import AddProductForm from './pages/AddProductForm';
+import { ProductProvider } from './context/ProductContext.jsx';
 
 
 export default function App() {
@@ -25,6 +28,7 @@ export default function App() {
     <UserProvider>
       <Provider store={store}> 
         <ThemeProvider>
+          <ProductProvider>
         <div>
           <Routes>
             <Route path="/" element={<Instruction1 />} />
@@ -41,8 +45,13 @@ export default function App() {
             <Route path="/orders" element={<Orders />} />
              <Route path="/account" element={<Account />} />
              <Route path="/info" element={<InfoPage />} /> 
+            <Route path="/admin/login" element={<AdminLogin />} /> 
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+             <Route path="/admin/products/add" element={<AddProductForm />} />
+
           </Routes>
         </div>
+        </ProductProvider>
         </ThemeProvider>
       </Provider>
     </UserProvider>
