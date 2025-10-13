@@ -111,6 +111,9 @@ export default function Account() {
                     <BottomNav />
                 </div>
             </div>
+            <br />
+            <br />
+            <br />
         </div>
     );
 }
